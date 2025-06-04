@@ -6,9 +6,81 @@
   <title>Privacy Policy – Hairelya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      darkMode: 'class',
+    tailwind.config = { darkMode: 'class' };
+
+    const translations = {
+      en: {
+        title: "Privacy Policy",
+        updated: "Last updated: June 2, 2025",
+        intro: "This Privacy Policy explains how user data is handled within the Hairelya app. By using the app, you agree to the practices described below.",
+        section1: "1. Data Collection",
+        content1: "Hairelya does not collect or transmit personal information. All data is stored locally on the device or, if enabled, in iCloud. No login is required, and no name, email, or contact information is collected.",
+        section2: "2. Data Stored",
+        content2: "Data is stored only locally or in iCloud (for PRO users only). No data is shared externally. We do not store any personal information such as names or emails.",
+        li1: "Hair care routine and preferences",
+        li2: "Timeline photos with notes",
+        li3: "Used products (name, type, brand)",
+        li4: "Reminders and schedule settings",
+        li5: "Hair profile details (type, structure, scalp, goals)",
+        section3: "3. iCloud Sync",
+        content3: "For PRO users, data is synced with their private iCloud account using Apple's privacy and encryption protections. We have no access to iCloud data.",
+        section4: "4. Notifications",
+        content4: "The app uses local notifications only. No data is transmitted or stored externally.",
+        section5: "5. Advertising",
+        content5: "The FREE version may display banner ads from third-party providers (e.g., Google AdMob) using anonymous identifiers. No personalized tracking is performed by the app.",
+        section6: "6. In-App Purchases",
+        content6: "PRO features can be unlocked via Apple’s in-app purchase system. No payment data is stored by us.",
+        section7: "7. Data Deletion",
+        content7: "You can delete your data manually from within the app or by uninstalling it. iCloud data must be removed via your Apple settings.",
+        section8: "8. Policy Changes",
+        content8: "Any important changes to this policy will be communicated via the app.",
+        section9: "9. Contact",
+        content9: "If you have any questions or concerns, feel free to email us at:",
+        back: "← Back to Home"
+      },
+      it: {
+        title: "Privacy Policy",
+        updated: "Ultimo aggiornamento: 2 Giugno 2025",
+        intro: "Questa Privacy Policy descrive come vengono gestiti i dati degli utenti nell’app Hairelya. Usando l’app, accetti le pratiche descritte di seguito.",
+        section1: "1. Raccolta dati",
+        content1: "Hairelya non raccoglie né trasmette informazioni personali. Tutti i dati sono salvati localmente sul dispositivo o, se attivato, in iCloud. Non è richiesto alcun login né vengono raccolti nomi, email o contatti.",
+        section2: "2. Dati salvati",
+        content2: "I dati sono salvati solo localmente o in iCloud (solo per utenti PRO). Non vengono mai condivisi. Nessuna informazione personale (nome, email) è raccolta.",
+        li1: "Routine e preferenze",
+        li2: "Foto nella timeline con note",
+        li3: "Prodotti usati (nome, tipo, marca)",
+        li4: "Promemoria e programmazione",
+        li5: "Dati del profilo capelli (tipo, struttura, cute, obiettivi)",
+        section3: "3. Sincronizzazione iCloud",
+        content3: "Per utenti PRO, i dati sono sincronizzati con l’account iCloud personale, tramite le protezioni Apple. Non possiamo accedere a questi dati.",
+        section4: "4. Notifiche",
+        content4: "L’app usa solo notifiche locali. Nessun dato viene inviato o salvato esternamente.",
+        section5: "5. Annunci pubblicitari",
+        content5: "La versione FREE può mostrare banner pubblicitari forniti da terze parti (es. Google AdMob) con identificatori anonimi. Non viene fatto tracking personalizzato.",
+        section6: "6. Acquisti in-app",
+        content6: "Gli acquisti PRO avvengono tramite Apple StoreKit. Nessun dato di pagamento è gestito da noi.",
+        section7: "7. Eliminazione dati",
+        content7: "Puoi eliminare i tuoi dati direttamente dall’app o disinstallandola. I dati iCloud devono essere eliminati tramite le impostazioni Apple.",
+        section8: "8. Modifiche alla policy",
+        content8: "Eventuali modifiche importanti saranno comunicate tramite l’app.",
+        section9: "9. Contatti",
+        content9: "Per domande o chiarimenti puoi scriverci a:",
+        back: "← Torna alla Home"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.innerText = translations[lang][key] || key;
+      });
     }
+
+    window.onload = () => {
+      const lang = localStorage.getItem('lang') || 'en';
+      setLanguage(lang);
+    };
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -18,47 +90,51 @@
 <body class="bg-white text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-white transition-colors duration-300 p-6">
 
   <main class="max-w-3xl mx-auto py-10">
-    <h1 class="text-3xl font-bold text-[#a47864] dark:text-[#ffe8d1] mb-6">Privacy Policy</h1>
-    <p class="mb-4"><strong>Last updated:</strong> June 2, 2025</p>
+    <h1 class="text-3xl font-bold text-[#a47864] dark:text-[#ffe8d1] mb-6" data-i18n="title"></h1>
+    <p class="mb-4" data-i18n="updated"></p>
+    <p class="mb-6" data-i18n="intro"></p>
 
-    <p class="mb-6">This Privacy Policy explains how user data is handled within the Hairelya app. By using the app, you agree to the practices described below.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section1"></h2>
+    <p class="mb-4" data-i18n="content1"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">1. Data Collection</h2>
-    <p class="mb-4">Hairelya does not collect or transmit personal information. All data is stored locally on the device or, if enabled, in iCloud. No login is required, and no name, email, or contact information is collected.</p>
-
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">2. Data Stored</h2>
-    <p class="mb-4">Data is stored only locally or in iCloud (for PRO users only). No data is shared externally. We do not store any personal information such as names or emails.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section2"></h2>
+    <p class="mb-4" data-i18n="content2"></p>
     <ul class="list-disc ml-6 mb-4">
-      <li>Hair care routine and preferences</li>
-      <li>Timeline photos with notes</li>
-      <li>Used products (name, type, brand)</li>
-      <li>Reminders and schedule settings</li>
-      <li>Hair profile details (type, structure, scalp, goals)</li>
+      <li data-i18n="li1"></li>
+      <li data-i18n="li2"></li>
+      <li data-i18n="li3"></li>
+      <li data-i18n="li4"></li>
+      <li data-i18n="li5"></li>
     </ul>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">3. iCloud Sync</h2>
-    <p class="mb-4">For PRO users, data is synced with their private iCloud account using Apple's privacy and encryption protections. We have no access to iCloud data.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section3"></h2>
+    <p class="mb-4" data-i18n="content3"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">4. Notifications</h2>
-    <p class="mb-4">The app uses local notifications only. No data is transmitted or stored externally.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section4"></h2>
+    <p class="mb-4" data-i18n="content4"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">5. Advertising</h2>
-    <p class="mb-4">The FREE version may display banner ads from third-party providers (e.g., Google AdMob) using anonymous identifiers. No personalized tracking is performed by the app.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section5"></h2>
+    <p class="mb-4" data-i18n="content5"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">6. In-App Purchases</h2>
-    <p class="mb-4">PRO features can be unlocked via Apple’s in-app purchase system. No payment data is stored by us.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section6"></h2>
+    <p class="mb-4" data-i18n="content6"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">7. Data Deletion</h2>
-    <p class="mb-4">You can delete your data manually from within the app or by uninstalling it. iCloud data must be removed via your Apple settings.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section7"></h2>
+    <p class="mb-4" data-i18n="content7"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">8. Policy Changes</h2>
-    <p class="mb-4">Any important changes to this policy will be communicated via the app.</p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section8"></h2>
+    <p class="mb-4" data-i18n="content8"></p>
 
-    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2">9. Contact</h2>
-    <p>If you have any questions or concerns, feel free to email us at: <a href="mailto:support@hairelya.com" class="underline text-[#a47864] dark:text-[#ffe8d1]">support@hairelya.com</a></p>
+    <h2 class="text-xl font-semibold text-[#a47864] dark:text-[#ffe8d1] mt-8 mb-2" data-i18n="section9"></h2>
+    <p><span data-i18n="content9"></span> <a href="mailto:support@hairelya.com" class="underline text-[#a47864] dark:text-[#ffe8d1]">support@hairelya.com</a></p>
 
     <div class="mt-8">
-      <a href="index.html" class="inline-block mt-6 text-[#a47864] dark:text-[#ffe8d1] underline">← Back to Home</a>
+      <a href="index.html" class="inline-block mt-6 text-[#a47864] dark:text-[#ffe8d1] underline" data-i18n="back"></a>
+    </div>
+
+    <div class="mt-6 text-sm">
+      <button onclick="setLanguage('en')" class="underline mr-2">English</button>
+      <button onclick="setLanguage('it')" class="underline">Italiano</button>
     </div>
   </main>
 
