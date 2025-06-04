@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hairelya - La tua routine per capelli</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    function toggleThemeSwitch(el) {
+      const html = document.documentElement;
+      const on = el.classList.toggle('bg-[#a47864]');
+      el.classList.toggle('bg-gray-300', !on);
+      el.querySelector('div').classList.toggle('translate-x-5', on);
+      html.classList.toggle('dark', on);
+      localStorage.setItem('theme', on ? 'dark' : 'light');
+    }
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .transition-section { transition: background-color 0.5s ease, color 0.5s ease; }
+  </style>
+</head>
+<body class="bg-[#fff] text-[#2E2E2E] dark:bg-[#a47864] dark:text-[#ffffff] transition-colors duration-300">
+
+<header class="text-center py-20 bg-[#a47864] text-white dark:bg-[#ffe8d1] dark:text-[#a47864] transition-section">
+  <h1 class="text-5xl font-semibold mb-2">Hairelya</h1>
+  <p class="text-lg">L’app che trasforma la tua hair routine in un rituale semplice e motivante.</p>
+</header>
+
+<section class="py-16 px-6 bg-white dark:bg-[#ffe8d1] text-[#2E2E2E] dark:text-[#a47864] transition-section text-center">
+  <h2 class="text-2xl font-semibold mb-6">✨ Funzionalità principali</h2>
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
+    <div>
+      <h3 class="text-xl font-semibold mb-2">Profilazione capelli</h3>
+      <p class="mb-4">Scopri la tua tipologia di capello e personalizza la tua routine.</p>
+      <h3 class="text-xl font-semibold mb-2">Routine smart</h3>
+      <p>Promemoria, pianificazione, consigli e progressi visibili.</p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">Diario e prodotti</h3>
+      <p class="mb-4">Annota trattamenti e valuta i prodotti usati nel tempo.</p>
+      <h3 class="text-xl font-semibold mb-2">Grafici & motivazione</h3>
+      <p>Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-[#ffe8d1] dark:bg-[#a47864] text-[#a47864] dark:text-white transition-section text-center">
+  <h2 class="text-2xl font-semibold mb-6">📲 Uno sguardo all'app</h2>
+  <div class="overflow-x-auto whitespace-nowrap px-4">
+    <img src="images/app-mockup-1.png" class="inline-block mx-2 w-48 rounded-xl shadow" />
+    <img src="images/app-mockup-2.png" class="inline-block mx-2 w-48 rounded-xl shadow" />
+    <img src="images/app-mockup-3.png" class="inline-block mx-2 w-48 rounded-xl shadow" />
+    <img src="images/app-mockup-4.png" class="inline-block mx-2 w-48 rounded-xl shadow" />
+    <img src="images/app-mockup-5.png" class="inline-block mx-2 w-48 rounded-xl shadow" />
+  </div>
+  <div class="mt-8">
+    <a href="https://apps.apple.com/it/app/" target="_blank">
+      <img src="images/appstore-badge-official.svg" alt="App Store" class="mx-auto w-44">
+    </a>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white dark:bg-[#fff] text-[#2E2E2E] transition-section text-center">
+  <h2 class="text-2xl font-semibold mb-4">📬 Contattaci</h2>
+  <form name="contact" method="POST" data-netlify="true" class="max-w-md mx-auto space-y-4">
+    <input type="text" name="name" placeholder="Il tuo nome" required class="w-full p-3 border rounded" />
+    <input type="email" name="email" placeholder="La tua email" required class="w-full p-3 border rounded" />
+    <textarea name="message" placeholder="Scrivici il tuo messaggio..." rows="5" required class="w-full p-3 border rounded"></textarea>
+    <button type="submit" class="bg-[#a47864] hover:bg-[#8b6354] text-white font-semibold px-6 py-2 rounded-full transition">Invia messaggio</button>
+  </form>
+</section>
+
+<footer class="text-center py-8 bg-[#ffe8d1] dark:bg-[#2E2E2E] text-[#a47864] dark:text-white transition-section">
+  <p class="mb-4">© 2025 Hairelya</p>
+  <div class="flex justify-center items-center gap-2 text-sm">
+    <span>Tema scuro</span>
+    <div onclick="toggleThemeSwitch(this)" class="cursor-pointer w-12 h-6 rounded-full bg-gray-300 flex items-center px-1 transition duration-300">
+      <div class="w-4 h-4 bg-white rounded-full transition duration-300"></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
