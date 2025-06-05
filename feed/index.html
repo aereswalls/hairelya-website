@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Feed - Articoli Hairelya</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#a47864" />
+  <link rel="apple-touch-icon" href="/images/icon-192.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    function toggleThemeSwitch(el) {
+      const html = document.documentElement;
+      const on = el.classList.toggle('bg-[#a47864]');
+      el.classList.toggle('bg-gray-300', !on);
+      el.querySelector('div').classList.toggle('translate-x-5', on);
+      html.classList.toggle('dark', on);
+      localStorage.setItem('theme', on ? 'dark' : 'light');
+    }
+    window.onload = () => {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    }
+  </script>
+
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 </head>
-<body class="bg-[#fffaf7] text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-white">
+<body class="bg-[#fffaf7] text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-white transition-colors duration-300">
 
   <!-- NAVIGATION BAR -->
-  <nav class="bg-[#a47864] dark:bg-[#1f1f1f] text-white py-4 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-      <!-- Left spacer -->
-      <div class="w-10 sm:w-20"></div>
-
-      <!-- Center logo -->
-      <a href="/" class="flex justify-center">
-        <img src="/images/hairelya.png" alt="Hairelya Logo" class="h-10 sm:h-12 object-contain" />
+  <nav class="bg-white/70 dark:bg-[#1c1c1c] backdrop-blur sticky top-0 z-50 border-b border-[#e6e6e6] dark:border-[#3a3a3a]">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/">
+        <img src="/images/hairelya.png" alt="Hairelya Logo" class="h-6 sm:h-7 object-contain">
       </a>
-
-      <!-- Right menu -->
-      <div class="flex gap-4 text-sm">
-        <a href="/" class="underline hover:text-[#ffe8d1]">Home</a>
-        <a href="/feed" class="underline hover:text-[#ffe8d1]">Tutti gli articoli</a>
+      <div class="space-x-4 text-sm">
+        <a href="/feed" class="text-[#2E2E2E] dark:text-white hover:underline">Blog</a>
       </div>
     </div>
   </nav>
