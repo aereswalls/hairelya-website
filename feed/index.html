@@ -12,17 +12,26 @@
 </head>
 <body class="bg-[#fffaf7] text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-white">
 
-  <header class="bg-[#a47864] dark:bg-[#1f1f1f] text-white py-6 px-4 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
-    <div class="flex items-center gap-3">
-      <img src="/images/icon-192.png" alt="Logo Hairelya" class="w-10 h-10 rounded-xl" />
-      <h1 class="text-xl font-bold">Hairelya Blog</h1>
-    </div>
-    <nav class="flex gap-4 text-sm">
-      <a href="/" class="underline hover:text-[#ffe8d1]">Home</a>
-      <a href="/feed" class="underline hover:text-[#ffe8d1]">Tutti gli articoli</a>
-    </nav>
-  </header>
+  <!-- NAVIGATION BAR -->
+  <nav class="bg-[#a47864] dark:bg-[#1f1f1f] text-white py-4 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+      <!-- Left spacer -->
+      <div class="w-10 sm:w-20"></div>
 
+      <!-- Center logo -->
+      <a href="/" class="flex justify-center">
+        <img src="/images/hairelya.png" alt="Hairelya Logo" class="h-10 sm:h-12 object-contain" />
+      </a>
+
+      <!-- Right menu -->
+      <div class="flex gap-4 text-sm">
+        <a href="/" class="underline hover:text-[#ffe8d1]">Home</a>
+        <a href="/feed" class="underline hover:text-[#ffe8d1]">Tutti gli articoli</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN FEED CONTENT -->
   <main class="px-4 py-10 max-w-4xl mx-auto grid gap-6 sm:grid-cols-2">
     <a href="/feed/capelli-secchi" class="block p-4 bg-white dark:bg-[#3a3a3a] rounded-xl hover:bg-[#fceee7] dark:hover:bg-[#444] transition">
       <h2 class="text-lg font-semibold mb-2">Come trattare i capelli secchi</h2>
