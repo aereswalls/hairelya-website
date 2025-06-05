@@ -4,11 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hairelya - Your hair care ritual</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- ✅ PWA Setup -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#a47864" />
   <link rel="apple-touch-icon" href="/images/icon-192.png" />
+
+  <!-- Fonts & Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
   <script>
     tailwind.config = { darkMode: 'class' };
 
@@ -57,6 +65,7 @@
       setLanguage(lang);
     }
   </script>
+
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; }
     .fade-in { animation: fadeIn 1s ease-out; }
@@ -128,6 +137,7 @@
   <p class="mt-4 text-xs sm:text-sm">© 2025 Hairelya</p>
 </footer>
 
+<!-- ✅ Register service worker -->
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
@@ -138,4 +148,3 @@
 
 </body>
 </html>
-
