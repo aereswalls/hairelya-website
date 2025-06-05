@@ -5,21 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hairelya - Your hair care ritual</title>
 
-  <!-- ✅ Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-  <!-- ✅ PWA Setup -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#a47864" />
   <link rel="apple-touch-icon" href="/images/icon-192.png" />
-
-  <!-- Fonts & Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = { darkMode: 'class' };
-
     function toggleThemeSwitch(el) {
       const html = document.documentElement;
       const on = el.classList.toggle('bg-[#a47864]');
@@ -28,7 +22,6 @@
       html.classList.toggle('dark', on);
       localStorage.setItem('theme', on ? 'dark' : 'light');
     }
-
     function setLanguage(lang) {
       localStorage.setItem('lang', lang);
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -36,7 +29,6 @@
         el.innerText = translations[lang][key] || key;
       });
     }
-
     const translations = {
       en: {
         subtitle: "The app that turns your hair routine into a simple and motivating ritual.",
@@ -57,13 +49,11 @@
         mockup: "📲 Uno sguardo all'app"
       }
     };
-
     window.onload = () => {
       const theme = localStorage.getItem('theme');
       const lang = localStorage.getItem('lang') || 'en';
       if (theme === 'dark') document.documentElement.classList.add('dark');
       setLanguage(lang);
-      updateSlider(); // inizializza i pallini
     }
   </script>
 
@@ -101,32 +91,16 @@
   </div>
 </section>
 
-<section class="py-12 sm:py-16 bg-[#ffe8d1] dark:bg-[#a47864] text-[#a47864] dark:text-white transition-section fade-in text-center">
-  <h2 class="text-xl sm:text-2xl font-semibold mb-6" data-i18n="mockup"></h2>
-  <div class="relative max-w-md mx-auto overflow-hidden">
-    <div id="slider" class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%)">
-      <img src="images/app-mockup-1.png" class="min-w-full max-w-full object-contain rounded-3xl scale-95 transition-transform duration-500 ease-in-out" loading="lazy" />
-      <img src="images/app-mockup-2.png" class="min-w-full max-w-full object-contain rounded-3xl scale-95 transition-transform duration-500 ease-in-out" loading="lazy" />
-      <img src="images/app-mockup-3.png" class="min-w-full max-w-full object-contain rounded-3xl scale-95 transition-transform duration-500 ease-in-out" loading="lazy" />
-      <img src="images/app-mockup-4.png" class="min-w-full max-w-full object-contain rounded-3xl scale-95 transition-transform duration-500 ease-in-out" loading="lazy" />
-      <img src="images/app-mockup-5.png" class="min-w-full max-w-full object-contain rounded-3xl scale-95 transition-transform duration-500 ease-in-out" loading="lazy" />
-    </div>
-
-    <!-- Arrows -->
-    <button onclick="prevSlide()" class="absolute top-1/2 left-0 -translate-y-1/2 p-2 bg-white/70 dark:bg-black/40 rounded-full text-2xl">‹</button>
-    <button onclick="nextSlide()" class="absolute top-1/2 right-0 -translate-y-1/2 p-2 bg-white/70 dark:bg-black/40 rounded-full text-2xl">›</button>
+<section class="py-16 bg-gradient-to-b from-[#ffe8d1] to-[#fce6d6] dark:from-[#a47864] dark:to-[#9d6e5d] text-[#a47864] dark:text-white fade-in transition-section">
+  <h2 class="text-xl sm:text-2xl font-semibold mb-10 text-center" data-i18n="mockup"></h2>
+  <div class="flex flex-wrap justify-center items-center gap-4 px-4">
+    <img src="images/app-mockup-1.png" class="w-40 sm:w-48 md:w-52 lg:w-56 rounded-2xl transition hover:scale-105" loading="lazy" alt="App mockup 1">
+    <img src="images/app-mockup-2.png" class="w-40 sm:w-48 md:w-52 lg:w-56 rounded-2xl transition hover:scale-105" loading="lazy" alt="App mockup 2">
+    <img src="images/app-mockup-3.png" class="w-40 sm:w-48 md:w-52 lg:w-56 rounded-2xl transition hover:scale-105" loading="lazy" alt="App mockup 3">
+    <img src="images/app-mockup-4.png" class="w-40 sm:w-48 md:w-52 lg:w-56 rounded-2xl transition hover:scale-105" loading="lazy" alt="App mockup 4">
+    <img src="images/app-mockup-5.png" class="w-40 sm:w-48 md:w-52 lg:w-56 rounded-2xl transition hover:scale-105" loading="lazy" alt="App mockup 5">
   </div>
-
-  <!-- Dots -->
-  <div id="dots" class="flex justify-center gap-2 mt-4">
-    <span class="dot w-2.5 h-2.5 bg-[#a47864] dark:bg-white rounded-full opacity-50 transition-opacity duration-300"></span>
-    <span class="dot w-2.5 h-2.5 bg-[#a47864] dark:bg-white rounded-full opacity-50 transition-opacity duration-300"></span>
-    <span class="dot w-2.5 h-2.5 bg-[#a47864] dark:bg-white rounded-full opacity-50 transition-opacity duration-300"></span>
-    <span class="dot w-2.5 h-2.5 bg-[#a47864] dark:bg-white rounded-full opacity-50 transition-opacity duration-300"></span>
-    <span class="dot w-2.5 h-2.5 bg-[#a47864] dark:bg-white rounded-full opacity-50 transition-opacity duration-300"></span>
-  </div>
-
-  <div class="mt-8">
+  <div class="mt-12 text-center">
     <a href="https://apps.apple.com/it/app/" target="_blank">
       <img src="images/appstore-badge-official.svg" alt="App Store" class="mx-auto w-36 sm:w-44">
     </a>
@@ -135,9 +109,9 @@
 
 <footer class="text-center py-8 px-4 bg-[#ffe8d1] dark:bg-[#2E2E2E] text-[#a47864] dark:text-white transition-section">
   <div class="mb-4 flex justify-center flex-wrap gap-4 text-sm">
-    <a href="https://hairelya.com/privacy.html" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Privacy Policy</a>
-    <a href="https://hairelya.com/support.html" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Scrivici</a>
-    <a href="https://hairelya.com/aboutus.html" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Chi siamo</a>
+    <a href="/privacy" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Privacy Policy</a>
+    <a href="/support" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Scrivici</a>
+    <a href="/aboutus" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Chi siamo</a>
   </div>
   <div class="flex justify-center items-center gap-4 mb-4">
     <span>Dark mode</span>
@@ -152,41 +126,7 @@
   <p class="mt-4 text-xs sm:text-sm">© 2025 Hairelya</p>
 </footer>
 
-<!-- ✅ Slider JS + SW -->
 <script>
-  let currentIndex = 0;
-  const slider = document.getElementById("slider");
-  const dots = document.getElementById("dots").children;
-  const totalSlides = slider.children.length;
-
-  function updateSlider() {
-    slider.style.transform = translateX(-${currentIndex * 100}%);
-    [...dots].forEach((dot, index) => {
-      dot.classList.toggle("opacity-100", index === currentIndex);
-      dot.classList.toggle("opacity-50", index !== currentIndex);
-    });
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlider();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlider();
-  }
-
-  let startX = 0;
-  slider.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
-  slider.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextSlide();
-    else if (endX - startX > 50) prevSlide();
-  });
-
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
       .then(() => console.log("✅ Service Worker registered"))
@@ -196,3 +136,4 @@
 
 </body>
 </html>
+
