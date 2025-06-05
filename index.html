@@ -65,46 +65,48 @@
 </head>
 <body class="bg-white text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-white transition-colors duration-300">
 
-<header class="text-center py-20 bg-[#a47864] text-white dark:bg-[#2E2E2E] dark:text-white transition-section fade-in">
-  <img src="images/hairelya.png" alt="Logo Hairelya" class="mx-auto max-w-[220px] w-full h-auto mb-4" />
-  <p class="text-lg" data-i18n="subtitle"></p>
+<header class="text-center py-16 sm:py-20 px-4 bg-[#a47864] text-white dark:bg-[#2E2E2E] dark:text-white transition-section fade-in">
+  <img src="images/hairelya.png" alt="Logo Hairelya" class="mx-auto max-w-[180px] sm:max-w-[220px] w-full h-auto mb-4" />
+  <p class="text-base sm:text-lg px-2" data-i18n="subtitle"></p>
 </header>
 
-<section class="py-16 px-6 bg-white dark:bg-[#FFE8D1] text-[#2E2E2E] dark:text-white transition-section fade-in text-center">
-  <h2 class="text-2xl font-semibold mb-6" data-i18n="features"></h2>
-  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
+<section class="py-12 sm:py-16 px-4 sm:px-6 bg-white dark:bg-[#FFE8D1] text-[#2E2E2E] dark:text-white transition-section fade-in text-center">
+  <h2 class="text-xl sm:text-2xl font-semibold mb-6" data-i18n="features"></h2>
+  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
     <div>
-      <h3 class="text-xl font-semibold mb-2" data-i18n="profiling"></h3>
-      <p class="mb-4">Scopri la tua tipologia di capello e personalizza la tua routine.</p>
-      <h3 class="text-xl font-semibold mb-2" data-i18n="routine"></h3>
-      <p>Promemoria, pianificazione, consigli e progressi visibili.</p>
+      <h3 class="text-lg font-semibold mb-2" data-i18n="profiling"></h3>
+      <p class="mb-4 text-sm sm:text-base">Scopri la tua tipologia di capello e personalizza la tua routine.</p>
+      <h3 class="text-lg font-semibold mb-2" data-i18n="routine"></h3>
+      <p class="text-sm sm:text-base">Promemoria, pianificazione, consigli e progressi visibili.</p>
     </div>
     <div>
-      <h3 class="text-xl font-semibold mb-2" data-i18n="diary"></h3>
-      <p class="mb-4">Annota trattamenti e valuta i prodotti usati nel tempo.</p>
-      <h3 class="text-xl font-semibold mb-2" data-i18n="graphs"></h3>
-      <p>Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
+      <h3 class="text-lg font-semibold mb-2" data-i18n="diary"></h3>
+      <p class="mb-4 text-sm sm:text-base">Annota trattamenti e valuta i prodotti usati nel tempo.</p>
+      <h3 class="text-lg font-semibold mb-2" data-i18n="graphs"></h3>
+      <p class="text-sm sm:text-base">Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
     </div>
   </div>
 </section>
 
-<section class="py-16 bg-[#ffe8d1] dark:bg-[#a47864] text-[#a47864] dark:text-white transition-section fade-in text-center">
-  <h2 class="text-2xl font-semibold mb-6" data-i18n="mockup"></h2>
-  <div class="overflow-x-auto whitespace-nowrap px-4">
-    <img src="images/app-mockup-1.png" class="inline-block mx-2 w-48 rounded-3xl" />
-    <img src="images/app-mockup-2.png" class="inline-block mx-2 w-48 rounded-3xl" />
-    <img src="images/app-mockup-3.png" class="inline-block mx-2 w-48 rounded-3xl" />
-    <img src="images/app-mockup-4.png" class="inline-block mx-2 w-48 rounded-3xl" />
-    <img src="images/app-mockup-5.png" class="inline-block mx-2 w-48 rounded-3xl" />
+<section class="py-12 sm:py-16 bg-[#ffe8d1] dark:bg-[#a47864] text-[#a47864] dark:text-white transition-section fade-in text-center">
+  <h2 class="text-xl sm:text-2xl font-semibold mb-6" data-i18n="mockup"></h2>
+  <div class="overflow-x-auto whitespace-nowrap px-4 sm:px-8 scroll-smooth">
+    <div class="inline-flex gap-3 sm:gap-4">
+      <img src="images/app-mockup-1.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img src="images/app-mockup-2.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img src="images/app-mockup-3.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img src="images/app-mockup-4.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img src="images/app-mockup-5.png" class="w-36 sm:w-48 rounded-3xl" />
+    </div>
   </div>
   <div class="mt-8">
     <a href="https://apps.apple.com/it/app/" target="_blank">
-      <img src="images/appstore-badge-official.svg" alt="App Store" class="mx-auto w-44">
+      <img src="images/appstore-badge-official.svg" alt="App Store" class="mx-auto w-36 sm:w-44">
     </a>
   </div>
 </section>
 
-<footer class="text-center py-8 bg-[#ffe8d1] dark:bg-[#2E2E2E] text-[#a47864] dark:text-white transition-section">
+<footer class="text-center py-8 px-4 bg-[#ffe8d1] dark:bg-[#2E2E2E] text-[#a47864] dark:text-white transition-section">
   <div class="mb-4 flex justify-center flex-wrap gap-4 text-sm">
     <a href="https://hairelya.com/privacy.html" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Privacy Policy</a>
     <a href="https://hairelya.com/support.html" class="underline hover:text-[#a47864] dark:hover:text-[#ffe8d1]">Scrivici</a>
@@ -120,7 +122,7 @@
     <button onclick="setLanguage('en')" class="underline mr-2">English</button>
     <button onclick="setLanguage('it')" class="underline">Italiano</button>
   </div>
-  <p class="mt-4">© 2025 Hairelya</p>
+  <p class="mt-4 text-xs sm:text-sm">© 2025 Hairelya</p>
 </footer>
 
 </body>
