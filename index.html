@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hairelya - Your hair care ritual</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#a47864" />
+  <link rel="apple-touch-icon" href="/images/icon-192.png" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = { darkMode: 'class' };
@@ -92,11 +95,11 @@
   <h2 class="text-xl sm:text-2xl font-semibold mb-6" data-i18n="mockup"></h2>
   <div class="overflow-x-auto whitespace-nowrap px-4 sm:px-8 scroll-smooth">
     <div class="inline-flex gap-3 sm:gap-4">
-      <img src="images/app-mockup-1.png" class="w-36 sm:w-48 rounded-3xl" />
-      <img src="images/app-mockup-2.png" class="w-36 sm:w-48 rounded-3xl" />
-      <img src="images/app-mockup-3.png" class="w-36 sm:w-48 rounded-3xl" />
-      <img src="images/app-mockup-4.png" class="w-36 sm:w-48 rounded-3xl" />
-      <img src="images/app-mockup-5.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img loading="lazy" src="images/app-mockup-1.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img loading="lazy" src="images/app-mockup-2.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img loading="lazy" src="images/app-mockup-3.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img loading="lazy" src="images/app-mockup-4.png" class="w-36 sm:w-48 rounded-3xl" />
+      <img loading="lazy" src="images/app-mockup-5.png" class="w-36 sm:w-48 rounded-3xl" />
     </div>
   </div>
   <div class="mt-8">
@@ -124,6 +127,14 @@
   </div>
   <p class="mt-4 text-xs sm:text-sm">© 2025 Hairelya</p>
 </footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log("✅ Service Worker registered"))
+      .catch(err => console.error("❌ SW error", err));
+  }
+</script>
 
 </body>
 </html>
