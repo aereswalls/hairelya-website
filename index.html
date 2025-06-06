@@ -1,163 +1,161 @@
 <!DOCTYPE html>
-<html lang="it" class="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hairelya - Your hair care ritual</title>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hairelya - Your hair care ritual</title>
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#a47864" />
-  <link rel="apple-touch-icon" href="/images/icon-192.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#a47864" />
+    <link rel="apple-touch-icon" href="/images/icon-192.png" />
 
-  <!-- Tailwind (temporaneamente ancora incluso) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Material Web Components -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@material/web/all.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Material Web Components (Material 3) -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@material/web/all.js"></script>
-
-  <script>
-    tailwind.config = { darkMode: 'class' };
-    function toggleThemeSwitch(el) {
-      const html = document.documentElement;
-      const dark = html.classList.toggle('dark');
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    }
-    function setLanguage(lang) {
-      localStorage.setItem('lang', lang);
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.innerText = translations[lang][key] || key;
-      });
-    }
-    const translations = {
-      en: {
-        subtitle: "The app that turns your hair routine into a simple and motivating ritual.",
-        features: "✨ Key Features",
-        profiling: "Hair Profiling",
-        routine: "Smart Routine",
-        diary: "Diary & Products",
-        graphs: "Progress & Motivation",
-        mockup: "📲 A look at the app"
-      },
-      it: {
-        subtitle: "L’app che trasforma la tua hair routine in un rituale semplice e motivante.",
-        features: "✨ Funzionalità principali",
-        profiling: "Profilazione capelli",
-        routine: "Routine smart",
-        diary: "Diario e prodotti",
-        graphs: "Grafici & motivazione",
-        mockup: "📲 Uno sguardo all'app"
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: 'Roboto', sans-serif;
       }
-    };
-    window.onload = () => {
-      const theme = localStorage.getItem('theme');
-      const lang = localStorage.getItem('lang') || 'it';
-      if (theme === 'dark') document.documentElement.classList.add('dark');
-      setLanguage(lang);
-    }
-  </script>
 
-  <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-    .fade-in {
-      animation: fadeIn 1s ease-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--md-sys-color-background, #fffaf5);
+        color: var(--md-sys-color-on-background, #2e2e2e);
+      }
 
-<body class="bg-gradient-to-b from-[#fffaf5] to-[#fce6d6] dark:from-[#2E2E2E] dark:to-[#3b3b3b] text-[#2E2E2E] dark:text-white transition-colors duration-300">
+      header {
+        background: linear-gradient(to bottom, #a47864, #c69d8f);
+        color: white;
+        text-align: center;
+        padding: 4rem 1rem;
+      }
 
-<!-- NAVIGATION BAR -->
-<nav class="bg-white/70 dark:bg-[#1c1c1c] backdrop-blur sticky top-0 z-50 border-b border-[#e6e6e6] dark:border-[#3a3a3a]">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="/">
-      <img src="/images/hairelya.png" alt="Hairelya Logo" class="h-6 sm:h-7 object-contain">
-    </a>
-    <div class="space-x-4 text-sm">
-      <md-outlined-button href="/feed">Blog</md-outlined-button>
-      <md-outlined-button href="/aboutus">About Us</md-outlined-button>
-      <md-outlined-button href="/support">Contact</md-outlined-button>
-    </div>
-  </div>
-</nav>
+      section.features, section.mockup {
+        padding: 3rem 1rem;
+        text-align: center;
+      }
 
-<!-- HERO HEADER -->
-<header class="text-center py-16 sm:py-20 px-4 bg-gradient-to-b from-[#a47864] to-[#c69d8f] dark:from-[#1f1f1f] dark:to-[#2e2e2e] text-white fade-in">
-  <p class="text-lg sm:text-2xl font-semibold px-4 max-w-2xl mx-auto" data-i18n="subtitle"></p>
-</header>
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: left;
+      }
 
-<!-- FEATURES -->
-<section class="py-12 sm:py-16 px-4 sm:px-6 text-[#2E2E2E] dark:text-white fade-in text-center bg-gradient-to-b from-[#fff] to-[#fff4ec] dark:from-[#3b3b3b] dark:to-[#2e2e2e]">
-  <h2 class="text-xl sm:text-2xl font-semibold mb-6" data-i18n="features"></h2>
-  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
-    <div>
-      <h3 class="text-lg font-semibold mb-2" data-i18n="profiling"></h3>
-      <p class="mb-4 text-sm sm:text-base">Scopri la tua tipologia di capello e personalizza la tua routine.</p>
-      <h3 class="text-lg font-semibold mb-2" data-i18n="routine"></h3>
-      <p class="text-sm sm:text-base">Promemoria, pianificazione, consigli e progressi visibili.</p>
-    </div>
-    <div>
-      <h3 class="text-lg font-semibold mb-2" data-i18n="diary"></h3>
-      <p class="mb-4 text-sm sm:text-base">Annota trattamenti e valuta i prodotti usati nel tempo.</p>
-      <h3 class="text-lg font-semibold mb-2" data-i18n="graphs"></h3>
-      <p class="text-sm sm:text-base">Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
-    </div>
-  </div>
-</section>
+      footer {
+        background: linear-gradient(to top, #f9e3d5, #fff4ec);
+        color: #a47864;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
 
-<!-- MOCKUP -->
-<section class="py-16 bg-gradient-to-b from-[#fff4ec] to-[#f9e3d5] dark:from-[#2e2e2e] dark:to-[#1f1f1f] text-[#a47864] dark:text-white fade-in">
-  <h2 class="text-xl sm:text-2xl font-semibold mb-10 text-center" data-i18n="mockup"></h2>
-  <div class="overflow-x-auto whitespace-nowrap px-4 sm:px-8 scroll-smooth text-center">
-    <div class="inline-flex gap-4">
-      <img src="images/app-mockup-1.png" class="w-44 sm:w-52 md:w-56 lg:w-60 xl:w-64 rounded-2xl" loading="lazy" alt="App mockup 1">
-      <img src="images/app-mockup-2.png" class="w-44 sm:w-52 md:w-56 lg:w-60 xl:w-64 rounded-2xl" loading="lazy" alt="App mockup 2">
-      <img src="images/app-mockup-3.png" class="w-44 sm:w-52 md:w-56 lg:w-60 xl:w-64 rounded-2xl" loading="lazy" alt="App mockup 3">
-      <img src="images/app-mockup-4.png" class="w-44 sm:w-52 md:w-56 lg:w-60 xl:w-64 rounded-2xl" loading="lazy" alt="App mockup 4">
-      <img src="images/app-mockup-5.png" class="w-44 sm:w-52 md:w-56 lg:w-60 xl:w-64 rounded-2xl" loading="lazy" alt="App mockup 5">
-    </div>
-  </div>
-  <div class="mt-12 text-center">
-    <md-elevated-button href="https://apps.apple.com/it/app/" target="_blank">Scarica su App Store</md-elevated-button>
-  </div>
-</section>
+      md-elevated-button, md-outlined-button {
+        margin: 0.5rem;
+      }
 
-<!-- FOOTER -->
-<footer class="text-center py-8 px-4 bg-gradient-to-b from-[#f9e3d5] to-[#fff4ec] dark:from-[#1f1f1f] dark:to-[#2e2e2e] text-[#a47864] dark:text-white">
-  <div class="mb-4 flex justify-center flex-wrap gap-4 text-sm">
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/support">Contact Us</a>
-    <a href="/aboutus">About Us</a>
-  </div>
-  <div class="flex justify-center items-center gap-4 mb-4">
-    <span>Dark mode</span>
-    <md-switch @click="toggleThemeSwitch(this)" selected></md-switch>
-  </div>
-  <div class="text-sm">
-    <button onclick="setLanguage('en')" class="underline mr-2">English</button>
-    <button onclick="setLanguage('it')" class="underline">Italiano</button>
-  </div>
-  <p class="mt-4 text-xs sm:text-sm">© 2025 Hairelya</p>
-</footer>
+      .mockup-images {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 0 1rem;
+        justify-content: center;
+      }
 
-<!-- Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log("✅ Service Worker registered"))
-      .catch(err => console.error("❌ SW error", err));
-  }
-</script>
+      .mockup-images img {
+        border-radius: 1rem;
+        max-height: 350px;
+        height: auto;
+      }
 
-</body>
+      md-switch {
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <md-top-app-bar>
+      <div slot="title">
+        <img src="/images/hairelya.png" alt="Logo" height="32" style="vertical-align: middle;" />
+        <span style="margin-left: 0.5rem; font-weight: 500;">hairelya</span>
+      </div>
+      <div slot="actionItems">
+        <md-outlined-button href="/feed">Blog</md-outlined-button>
+        <md-outlined-button href="/aboutus">Chi siamo</md-outlined-button>
+        <md-outlined-button href="/support">Contatti</md-outlined-button>
+      </div>
+    </md-top-app-bar>
+
+    <header>
+      <h1 style="font-size: 1.5rem; font-weight: 500;">
+        L'app che trasforma la tua hair routine in un rituale semplice e motivante.
+      </h1>
+    </header>
+
+    <section class="features">
+      <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem;">✨ Funzionalità principali</h2>
+      <div class="features-grid">
+        <div>
+          <h3>Profilazione capelli</h3>
+          <p>Scopri la tua tipologia di capello e personalizza la tua routine.</p>
+        </div>
+        <div>
+          <h3>Routine smart</h3>
+          <p>Promemoria, pianificazione, consigli e progressi visibili.</p>
+        </div>
+        <div>
+          <h3>Diario e prodotti</h3>
+          <p>Annota trattamenti e valuta i prodotti usati nel tempo.</p>
+        </div>
+        <div>
+          <h3>Grafici e motivazione</h3>
+          <p>Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mockup">
+      <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem;">📲 Uno sguardo all'app</h2>
+      <div class="mockup-images">
+        <img src="images/app-mockup-1.png" alt="App 1" />
+        <img src="images/app-mockup-2.png" alt="App 2" />
+        <img src="images/app-mockup-3.png" alt="App 3" />
+        <img src="images/app-mockup-4.png" alt="App 4" />
+        <img src="images/app-mockup-5.png" alt="App 5" />
+      </div>
+      <div style="margin-top: 2rem;">
+        <md-elevated-button href="https://apps.apple.com/it/app/" target="_blank">Scarica su App Store</md-elevated-button>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-bottom: 1rem;">
+        <a href="/privacy">Privacy Policy</a> |
+        <a href="/support">Contattaci</a> |
+        <a href="/aboutus">Chi siamo</a>
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <span>Dark mode</span>
+        <md-switch @click="toggleThemeSwitch(this)" selected></md-switch>
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <md-outlined-button onclick="setLanguage('en')">English</md-outlined-button>
+        <md-outlined-button onclick="setLanguage('it')">Italiano</md-outlined-button>
+      </div>
+      <p style="font-size: 0.75rem;">© 2025 hairelya</p>
+    </footer>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(() => console.log("✅ Service Worker registered"))
+          .catch(err => console.error("❌ SW error", err));
+      }
+    </script>
+  </body>
 </html>
