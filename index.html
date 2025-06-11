@@ -3,60 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hairelya - Your hair care ritual</title>
+    <title>hairelya – Your hair care ritual</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#a47864" />
+    <meta name="theme-color" content="#773344" />
     <link rel="apple-touch-icon" href="/images/icon-192.png" />
-
-    <!-- Material Web Components -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@material/web/all.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@material/web/all.js"></script>
 
     <style>
       :root {
         color-scheme: light dark;
         font-family: 'Roboto', sans-serif;
+        --primary: #773344;
+        --secondary: #e79dac;
+        --bg-light: #fffaf8;
+        --bg-dark: #2e1e23;
+        --text-light: #2e2e2e;
+        --text-dark: #f5f5f5;
       }
 
       body {
         margin: 0;
         padding: 0;
-        background-color: var(--md-sys-color-background, #fffaf5);
-        color: var(--md-sys-color-on-background, #2e2e2e);
+        background-color: var(--bg-light);
+        color: var(--text-light);
       }
 
       header {
-        background: linear-gradient(to bottom, #a47864, #c69d8f);
+        background: linear-gradient(to bottom, #773344, #a8646f);
         color: white;
         text-align: center;
-        padding: 4rem 1rem;
+        padding: 3rem 1.5rem;
       }
 
-      section.features, section.mockup {
-        padding: 3rem 1rem;
+      md-top-app-bar {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      section.features,
+      section.mockup {
+        padding: 2.5rem 1.25rem;
         text-align: center;
       }
 
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 2rem;
         max-width: 960px;
         margin: 0 auto;
         text-align: left;
       }
 
-      footer {
-        background: linear-gradient(to top, #f9e3d5, #fff4ec);
-        color: #a47864;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-
-      md-elevated-button, md-outlined-button {
-        margin: 0.5rem;
+      .features-grid h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
       }
 
       .mockup-images {
@@ -69,19 +73,40 @@
 
       .mockup-images img {
         border-radius: 1rem;
-        max-height: 350px;
+        max-height: 340px;
         height: auto;
       }
 
-      md-switch {
-        vertical-align: middle;
+      footer {
+        background: linear-gradient(to top, #f7e3df, #fff4f0);
+        color: var(--primary);
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      md-elevated-button,
+      md-outlined-button {
+        margin: 0.5rem;
+        --md-sys-color-primary: #773344;
+        --md-sys-color-secondary: #e79dac;
+      }
+
+      @media (max-width: 640px) {
+        header h1 {
+          font-size: 1.25rem;
+        }
+
+        .mockup-images img {
+          max-height: 240px;
+        }
       }
     </style>
   </head>
+
   <body>
     <md-top-app-bar>
       <div slot="title">
-        <img src="/images/hairelya.png" alt="Logo" height="32" style="vertical-align: middle;" />
+        <img src="/images/hairelya.png" alt="Logo" height="28" style="vertical-align: middle;" />
         <span style="margin-left: 0.5rem; font-weight: 500;">hairelya</span>
       </div>
       <div slot="actionItems">
@@ -92,7 +117,7 @@
     </md-top-app-bar>
 
     <header>
-      <h1 style="font-size: 1.5rem; font-weight: 500;">
+      <h1>
         L'app che trasforma la tua hair routine in un rituale semplice e motivante.
       </h1>
     </header>
@@ -141,7 +166,7 @@
       </div>
       <div style="margin-bottom: 1rem;">
         <span>Dark mode</span>
-        <md-switch @click="toggleThemeSwitch(this)" selected></md-switch>
+        <md-switch onclick="document.documentElement.classList.toggle('dark')"></md-switch>
       </div>
       <div style="margin-bottom: 1rem;">
         <md-outlined-button onclick="setLanguage('en')">English</md-outlined-button>
@@ -155,6 +180,11 @@
         navigator.serviceWorker.register('/service-worker.js')
           .then(() => console.log("✅ Service Worker registered"))
           .catch(err => console.error("❌ SW error", err));
+      }
+
+      function setLanguage(lang) {
+        console.log("Language set to:", lang);
+        // Puoi aggiungere qui il cambio lingua reale in futuro
       }
     </script>
   </body>
