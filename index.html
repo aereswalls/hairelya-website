@@ -1,191 +1,194 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hairelya – Your hair care ritual</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hairelya – La tua hair routine, reinventata</title>
+  <meta name="theme-color" content="#773344" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#773344" />
-    <link rel="apple-touch-icon" href="/images/icon-192.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@material/web/all.js"></script>
+  <style>
+    :root {
+      --primary: #773344;
+      --secondary: #e79dac;
+      --bg: #fffaf7;
+      --text: #2e2e2e;
+    }
 
-    <style>
-      :root {
-        color-scheme: light dark;
-        font-family: 'Roboto', sans-serif;
-        --primary: #773344;
-        --secondary: #e79dac;
-        --bg-light: #fffaf8;
-        --bg-dark: #2e1e23;
-        --text-light: #2e2e2e;
-        --text-dark: #f5f5f5;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to bottom, var(--primary), #a45660);
+      color: white;
+      padding: 5rem 1rem 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      background-color: white;
+      color: var(--primary);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #ffe8e8;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .mission {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+
+    .mission h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .features h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .features p {
+      font-size: 0.95rem;
+    }
+
+    .mockup {
+      margin-top: 3rem;
+    }
+
+    .mockup img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #fbeeee;
+      color: var(--primary);
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem;
       }
 
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: var(--bg-light);
-        color: var(--text-light);
+      .cta-button {
+        width: 100%;
+        font-size: 1rem;
       }
+    }
+  </style>
+</head>
 
-      header {
-        background: linear-gradient(to bottom, #773344, #a8646f);
-        color: white;
-        text-align: center;
-        padding: 3rem 1.5rem;
-      }
+<body>
 
-      md-top-app-bar {
-        background-color: var(--primary);
-        color: white;
-      }
+  <header>
+    <h1>Benvenuta in hairelya</h1>
+    <p>L'app che rende la tua hair care semplice, personalizzata e gratificante.</p>
+    <a href="#scarica"><button class="cta-button">Scopri di più</button></a>
+  </header>
 
-      section.features,
-      section.mockup {
-        padding: 2.5rem 1.25rem;
-        text-align: center;
-      }
+  <section>
+    <div class="mission">
+      <h2>Un rituale creato per te</h2>
+      <p>Crediamo che ogni capello racconti una storia. Con hairelya puoi costruire una routine su misura, seguire i tuoi progressi e sentirti ogni giorno più sicura di te. Minimal, smart, tua.</p>
+    </div>
 
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
-        max-width: 960px;
-        margin: 0 auto;
-        text-align: left;
-      }
-
-      .features-grid h3 {
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .mockup-images {
-        display: flex;
-        overflow-x: auto;
-        gap: 1rem;
-        padding: 0 1rem;
-        justify-content: center;
-      }
-
-      .mockup-images img {
-        border-radius: 1rem;
-        max-height: 340px;
-        height: auto;
-      }
-
-      footer {
-        background: linear-gradient(to top, #f7e3df, #fff4f0);
-        color: var(--primary);
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-
-      md-elevated-button,
-      md-outlined-button {
-        margin: 0.5rem;
-        --md-sys-color-primary: #773344;
-        --md-sys-color-secondary: #e79dac;
-      }
-
-      @media (max-width: 640px) {
-        header h1 {
-          font-size: 1.25rem;
-        }
-
-        .mockup-images img {
-          max-height: 240px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <md-top-app-bar>
-      <div slot="title">
-        <img src="/images/hairelya.png" alt="Logo" height="28" style="vertical-align: middle;" />
-        <span style="margin-left: 0.5rem; font-weight: 500;">hairelya</span>
+    <div class="features">
+      <div>
+        <h3>🧬 Profilazione capello</h3>
+        <p>Scopri la tua tipologia e ricevi consigli su misura.</p>
       </div>
-      <div slot="actionItems">
-        <md-outlined-button href="/feed">Blog</md-outlined-button>
-        <md-outlined-button href="/aboutus">Chi siamo</md-outlined-button>
-        <md-outlined-button href="/support">Contatti</md-outlined-button>
+      <div>
+        <h3>🗓️ Routine cicliche</h3>
+        <p>Pianifica i trattamenti e ricevi promemoria intelligenti.</p>
       </div>
-    </md-top-app-bar>
+      <div>
+        <h3>📷 Diario fotografico</h3>
+        <p>Confronta le foto prima/dopo e annota prodotti usati.</p>
+      </div>
+      <div>
+        <h3>📊 Progressi visivi</h3>
+        <p>Badge, grafici, motivazione: la bellezza è anche costanza.</p>
+      </div>
+    </div>
 
-    <header>
-      <h1>
-        L'app che trasforma la tua hair routine in un rituale semplice e motivante.
-      </h1>
-    </header>
+    <div class="mockup">
+      <img src="/images/mockup-phone.png" alt="Mockup app hairelya" />
+    </div>
+  </section>
 
-    <section class="features">
-      <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem;">✨ Funzionalità principali</h2>
-      <div class="features-grid">
-        <div>
-          <h3>Profilazione capelli</h3>
-          <p>Scopri la tua tipologia di capello e personalizza la tua routine.</p>
-        </div>
-        <div>
-          <h3>Routine smart</h3>
-          <p>Promemoria, pianificazione, consigli e progressi visibili.</p>
-        </div>
-        <div>
-          <h3>Diario e prodotti</h3>
-          <p>Annota trattamenti e valuta i prodotti usati nel tempo.</p>
-        </div>
-        <div>
-          <h3>Grafici e motivazione</h3>
-          <p>Rendi visibile il progresso con grafici e obiettivi motivazionali.</p>
-        </div>
-      </div>
-    </section>
+  <section id="scarica">
+    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">📲 Presto disponibile su</h2>
+    <a href="#"><img src="/images/app-store-badge.svg" alt="App Store" style="height: 48px; margin: 0 0.5rem;" /></a>
+    <a href="#"><img src="/images/google-play-badge.svg" alt="Google Play" style="height: 48px; margin: 0 0.5rem;" /></a>
+  </section>
 
-    <section class="mockup">
-      <h2 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem;">📲 Uno sguardo all'app</h2>
-      <div class="mockup-images">
-        <img src="images/app-mockup-1.png" alt="App 1" />
-        <img src="images/app-mockup-2.png" alt="App 2" />
-        <img src="images/app-mockup-3.png" alt="App 3" />
-        <img src="images/app-mockup-4.png" alt="App 4" />
-        <img src="images/app-mockup-5.png" alt="App 5" />
-      </div>
-      <div style="margin-top: 2rem;">
-        <md-elevated-button href="https://apps.apple.com/it/app/" target="_blank">Scarica su App Store</md-elevated-button>
-      </div>
-    </section>
+  <footer>
+    <div>
+      <a href="/privacy">Privacy Policy</a> |
+      <a href="/support">Supporto</a> |
+      <a href="/aboutus">Chi siamo</a>
+    </div>
+    <p style="margin-top: 1rem;">© 2025 hairelya – made with 💗</p>
+  </footer>
 
-    <footer>
-      <div style="margin-bottom: 1rem;">
-        <a href="/privacy">Privacy Policy</a> |
-        <a href="/support">Contattaci</a> |
-        <a href="/aboutus">Chi siamo</a>
-      </div>
-      <div style="margin-bottom: 1rem;">
-        <span>Dark mode</span>
-        <md-switch onclick="document.documentElement.classList.toggle('dark')"></md-switch>
-      </div>
-      <div style="margin-bottom: 1rem;">
-        <md-outlined-button onclick="setLanguage('en')">English</md-outlined-button>
-        <md-outlined-button onclick="setLanguage('it')">Italiano</md-outlined-button>
-      </div>
-      <p style="font-size: 0.75rem;">© 2025 hairelya</p>
-    </footer>
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(() => console.log("✅ Service Worker registered"))
-          .catch(err => console.error("❌ SW error", err));
-      }
-
-      function setLanguage(lang) {
-        console.log("Language set to:", lang);
-        // Puoi aggiungere qui il cambio lingua reale in futuro
-      }
-    </script>
-  </body>
+</body>
 </html>
